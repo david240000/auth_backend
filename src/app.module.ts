@@ -8,9 +8,16 @@ import { AuthModule } from './auth/auth.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { PassportModule } from '@nestjs/passport';
 import { dbConfig } from './db.config';
+import { GraphQLModule} from '@nestjs/graphql';
+import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: true,
+
+    }),
     TypeOrmModule.forRootAsync(dbConfig),
     PassportModule.register({session: true}),
     UsersModule, AuthModule],

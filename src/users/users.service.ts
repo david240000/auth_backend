@@ -116,4 +116,8 @@ export class UsersService {
         await this.userRepository.create(newUser);
         return await this.userRepository.save(newUser);
     }
+
+    async allUser(){
+        return await this.userRepository.find();
+    }
 }
