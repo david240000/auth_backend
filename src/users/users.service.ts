@@ -4,7 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { use } from 'passport';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from './create-user.dto';
+import { CreateUserDto } from './DTO-s/create-user.dto';
 import { User } from './entities/user.entity';
 
 @Injectable()
@@ -43,9 +43,9 @@ export class UsersService {
         
         const email = await this.mailerService.sendMail({
             to: user.email,
-            from: 'auth@gmail.com',
+            from: 'gyorgydavid2000@gmail.com',
             subject: 'Email megerősítése',
-            text: `Email cím megerősítése: <a href="${url}">${url}</a>`
+            html: `Email cím megerősítése: <a href="${url}">${url}</a>`
         })
 
         return validUser;
@@ -62,7 +62,7 @@ export class UsersService {
     async findById(id:number):Promise<User> {
         const user :User= await this.userRepository.findOneById(id);
         if(!user){
-            throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+            return null;
         }
         return user;
     }

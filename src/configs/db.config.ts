@@ -1,5 +1,5 @@
 import { TypeOrmModuleAsyncOptions } from "@nestjs/typeorm"
-import { User } from "./users/entities/user.entity"
+import { User } from "src/users/entities/user.entity"
 
 export const dbConfig: TypeOrmModuleAsyncOptions = {
     useFactory() {

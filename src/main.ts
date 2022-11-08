@@ -3,7 +3,7 @@ import * as session from 'express-session';
 import * as passport from 'passport';
 import { AppModule } from './app.module';
 import * as dotenv from "dotenv";
-import appConfig from './app.config';
+import appConfig from './configs/app.config';
 
 dotenv.config();
 

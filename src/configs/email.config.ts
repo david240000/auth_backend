@@ -7,8 +7,8 @@ export const emailConfig: MailerAsyncOptions = {
        return  {transport: {
           host: appConfig().emailHost,
           auth:{
-            user: appConfig().emailUser,
-            pass: appConfig().emailPassword
+            user: "apikey",
+            pass: appConfig().emailAPIKey
           }
         }
     }

@@ -7,9 +7,9 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AuthModule } from './auth/auth.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { PassportModule } from '@nestjs/passport';
-import { dbConfig } from './db.config';
 import { GraphQLModule} from '@nestjs/graphql';
 import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { dbConfig } from './configs/db.config';
 
 @Module({
   imports: [
